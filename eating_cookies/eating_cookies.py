@@ -34,9 +34,35 @@ Returns: an integer
 #  * As far as performance optimizations go, caching/memoization might be one avenue we could go down? How should we make a cache available to our recursive function through multiple recursive calls?
 
 
-def eating_cookies(n):
-    # set up a base case for our recursion
-    pass
+def eating_cookies(n, cache=None):
+    # base case: when there are no more cookies
+    if n == 0:
+        return 1
+    # check for negative n values
+    elif n < 0:
+        return 0
+    # init our cache if we don't have it yet
+    # add a case to have us check the cache
+    elif cache and cache[n] > 0:
+        return cache[n]
+    else:
+        if not cache:
+            cache = [0 for _ in range(n+1)]
+        # we can go ahead and save our answer to the cache
+        cache[n] = eating_cookies(
+            n-1, cache) + eating_cookies(n-2, cache) + eating_cookies(n-3, cache)
+    return cache[n]
+    # this represents our recursive case where there still some cookies to be eaten
+
+    # # base case for no more cookies
+    # if n == 0:
+    #     return 1
+    #     # check for negative values
+    # if n < 0:
+    #     return 0  # if you go below zero, it isnt possible to eat cookies and will end the recursion
+
+    # else:  # three possible outcomes, eat 1, 2, or 3 cookies
+    #     return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
 
 
 if __name__ == "__main__":

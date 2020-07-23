@@ -21,3 +21,7 @@ Can you do this in `O(n)` time with `O(n)` space _without_ using division?
 
 ## Testing
 Run the test file by executing `python test_product_of_all_other_numbers.py`.
+
+dgdfg
+
+"C:/Users/TOrtiz/AppData/Local/Programs/Python/Python38/python.exe" "C:\Users\TOrtiz\.vscode\extensions\ms-python.python-2020.7.96456\pythonFiles\pyvsc-run-isolated.py" pip install -U flake8 --user

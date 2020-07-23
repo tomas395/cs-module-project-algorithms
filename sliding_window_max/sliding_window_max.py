@@ -5,15 +5,21 @@ Returns: a List of integers
 
 
 def sliding_window_max(nums, k):
-    max = 0
     newarr = []
     for i in range(len(nums) - k + 1):
-        max = nums[i]
-        for j in range(1, k):
-            if nums[i + j] > max:
-                max = nums[i + j]
-        newarr.append(max)
+        newarr.append(max(nums[i: i + k]))
+    # rather than using another loop, we can use the .max() thats built into python and use a slice to append i + k values directly
     return newarr
+
+    # max = 0
+    # newarr = []
+    # for i in range(len(nums) - k + 1):
+    #     max = nums[i]
+    #     for j in range(1, k):
+    #         if nums[i + j] > max:
+    #             max = nums[i + j]
+    #     newarr.append(max)
+    # return newarr
 
 
 if __name__ == '__main__':
